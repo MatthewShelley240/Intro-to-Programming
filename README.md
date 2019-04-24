@@ -12,7 +12,7 @@ This repository exists as a hub for my assignments found in my Intro to Programm
 I am Matthew Shelley.
 My hobbies include video games, larping, Pokemon Go, camping, and hiking
 Eagle Scout
-Served a 2 year LDS mission in the Philippines
+Served a two year LDS mission in the Philippines
 I speak two languages, English and Hiligaynon, commonly known as Ilonggo
 I'm currently learning three more languages, Spanish, Tagalog, and Norwegian, in that order of effort.
 I work for Southwest Plumbing Supply.
