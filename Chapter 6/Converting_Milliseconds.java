@@ -8,7 +8,8 @@ public class Converting_Milliseconds {
 		input = new Scanner(System.in);
 		System.out.println("Enter the number of Milliseconds you wish to count.");
 		Long time = input.nextLong();
-		convertMillis(time);
+
+		System.out.println(convertMillis(time));
 
 	}
 
@@ -20,9 +21,9 @@ public class Converting_Milliseconds {
 		long totalMinutes = totalSeconds / 60;
 		long currentMinute = totalMinutes % 60;
 		long totalHours = totalMinutes / 60;
-		System.out.println(totalHours + ":" + currentMinute + ":" + currentSecond);
+		String TIME = totalHours + ":" + currentMinute + ":" + currentSecond;
 		
-		return null;
+		return TIME;
 	}
 
 }
