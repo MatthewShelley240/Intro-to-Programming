@@ -9,7 +9,7 @@ public class ReverseTest {
 		int userInput = 15151;
 		
 		boolean expected = true;
-		boolean result = Reverse.isPalindrome(userInput);
+		
 		
 		assertTrue(Reverse.isPalindrome(userInput));
 	}
@@ -19,10 +19,20 @@ public class ReverseTest {
 		int userInput = 12345;
 		
 		boolean expected = false;
-		boolean result = Reverse.isPalindrome(userInput);
 		
 		assertFalse(Reverse.isPalindrome(userInput));
 		
 	}
+	
+	@Test
+	public void testReverse3() {
+		int userInput = 99;
+				
+		boolean expected = true;
+		
+		assertTrue(Reverse.isPalindrome(userInput));
+		
+	}
+	
 
 }
