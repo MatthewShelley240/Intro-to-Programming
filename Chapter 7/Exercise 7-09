@@ -1,0 +1,62 @@
+/*
+ * Matthew Shelley
+ * 09/16/2019
+ * Exercise 7-9, finds the minimum number in an array.
+ */
+import java.util.Scanner;
+
+public class Exercies_7_9 {
+
+		public static void main(String[] args) {
+			Scanner input = new Scanner(System.in);
+		
+			double[] arrayUserInput = new double[10];
+			
+			System.out.println("Input ten doubles seperated by spaces to find the minimum.");
+			for(int i = 0; i < 10; i++) {
+				arrayUserInput[i] = input.nextDouble();
+			}
+			
+			double minimum = min(arrayUserInput);
+			
+			System.out.println("The minimum number is " + minimum);
+			
+
+			
+		
+			
+		}
+		public static double min(double[] array) {
+
+			double minimum = 0.0;
+
+			minimum = array[0];
+			
+			for(int i = 0; i < array.length; i++) {
+				if(minimum > array[i]) {
+					minimum = array[i];
+				}
+			}
+			return minimum;
+		}
+		
+		
+
+		/*
+		 * public static void bubbleSort(double[] array) {
+			if (array.length <= 1)
+				return;  // Zero or 1 elements: It's already sorted
+		
+			for (int i = 0; i < array.length - 1; i++) {
+				for (int j = i + 1; j < array.length; j++) {
+					// If the elements are out of order
+					if (array[j] < array[i]) {
+						double temp = array[i];
+						array[j] = array[i];
+						array[i] = temp;
+					}
+				}
+			}
+		}
+		 */
+	}
