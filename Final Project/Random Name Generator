@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Final_Project_Name_Generator {
+
+	private static Scanner input;
+
+	public static void main(String[] args) {
+		input = new Scanner(System.in);
+		
+		System.out.println("What race would you like to generate a name for?");
+		System.out.println("Valid answers are 'Orcs' or 'Elves'");
+		String userInput = input.next();
+		String orcs = "orcs";
+		String elves = "elves";
+		
+		
+		boolean running = true;
+		do { 
+			if (userInput.compareToIgnoreCase(orcs) == 0) { 
+				
+			}
+			else if (userInput.compareToIgnoreCase(elves) == 0 ) {
+				
+			}
+			else {
+				System.out.println("Not understood, please type 'Orcs' or 'Elves'");
+			}
+		}while(running);
+
+	}
+
+	public static void orcs() {
+	
+	}
+	
+	public static void elves() {
+		
+	}
+}
