@@ -6,34 +6,121 @@ public class Final_Project_Name_Generator {
 
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
-		
+
 		System.out.println("What race would you like to generate a name for?");
 		System.out.println("Valid answers are 'Orcs' or 'Elves'");
-		String userInput = input.next();
 		String orcs = "orcs";
 		String elves = "elves";
-		
-		
+		int syllables = 0;
+
+		//determines if the user input is valid or not.
 		boolean running = true;
 		do { 
+			String userInput = input.next();
 			if (userInput.compareToIgnoreCase(orcs) == 0) { 
-				
+				System.out.println("this is working");
+				orcs();
+				running = false;
 			}
 			else if (userInput.compareToIgnoreCase(elves) == 0 ) {
-				
+				System.out.println("This is also working");
+				running = false;
 			}
 			else {
 				System.out.println("Not understood, please type 'Orcs' or 'Elves'");
 			}
 		}while(running);
 
+
+
+
+
+
+	}
+	// Generates an orkish name.
+	public static void orcs() {
+		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
+		int charNameLength = 0;
+
+		String userInputSyllables = "";
+
+		//determines if user input works.
+		boolean validAnswer = true;
+		do {
+			System.out.println("How many syllables to you want in the name?");
+			userInputSyllables = input.next();
+			if (Integer.parseInt(userInputSyllables) > 0) {
+				System.out.println("This is working as well");
+				continue;
+			}
+			else {// if userInputSyllables != an integer.
+				System.out.println("Not understood. Please enter a valid integer greater that zero.");
+			}
+		}while(validAnswer);
+
+
+	}
+	// Generates an elvish name.
+	public static void elves() {
+		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
+		int charNameLength = 0;
+		
+		System.out.println("how many syllables do you want?");
+		int userInputSyllables = input.nextInt();
+
+		while(userInputSyllables > 0) {
+			char[] syllableSize = new char[(int)Math.round(Math.random() * 4) - 1];
+			charNameLength += charNameLength + syllableSize.length;
+			for(int i = 0; i < syllableSize.length; i++) {
+				if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
+					int vows = (int)Math.round(Math.random() * 6  - 1);
+					syllableSize[i] = vowels[vows];
+				}
+				else if(Character.compare(syllableSize[i], 'b') == 0) { // Determines if the character is a consonant.
+					int cons = (int)Math.round(Math.random() * 21  - 1);
+					syllableSize[i] = consonants[cons];
+				}
+
+				char[] finalName = new char[charNameLength];
+			for(int j = 0; j < finalName.length; j++) {
+					finalName[j] = syllableSize[j];
+					System.out.print(finalName[j]);
+				}
+			}
+
+			userInputSyllables--;
+		}
+		
+
+
+	}
+	
+	// Determines what kind of syllable is to be used.
+	public static char[] randomSyllables(char[] syllableNumber) {
+
+
+		if(syllableNumber.length == 1) {
+			char[] syllableA = {'a'};
+			return syllableA;
+		}
+		else if(syllableNumber.length == 2) {
+			char[] syllableAB = {'a', 'b'};
+			return syllableAB;
+		}
+		else if(syllableNumber.length == 3){
+			char[] syllableBA = {'b', 'a'};
+			return syllableBA;
+		}
+		else if(syllableNumber.length == 4){
+			char[] syllableBAB = {'b', 'a', 'b'};
+			return syllableBAB;
+		}
 	}
 
-	public static void orcs() {
-	
-	}
-	
-	public static void elves() {
-		
+	public static void letters() {
+		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
 	}
 }
