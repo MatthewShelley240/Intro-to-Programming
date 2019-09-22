@@ -24,6 +24,7 @@ public class Final_Project_Name_Generator {
 			}
 			else if (userInput.compareToIgnoreCase(elves) == 0 ) {
 				System.out.println("This is also working");
+				elves();
 				running = false;
 			}
 			else {
@@ -66,12 +67,13 @@ public class Final_Project_Name_Generator {
 		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
 		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
 		int charNameLength = 0;
-		
+
 		System.out.println("how many syllables do you want?");
 		int userInputSyllables = input.nextInt();
 
 		while(userInputSyllables > 0) {
-			char[] syllableSize = new char[(int)Math.round(Math.random() * 4) - 1];
+			char[] syllableSize = randomSyllables();
+
 			charNameLength += charNameLength + syllableSize.length;
 			for(int i = 0; i < syllableSize.length; i++) {
 				if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
@@ -84,7 +86,7 @@ public class Final_Project_Name_Generator {
 				}
 
 				char[] finalName = new char[charNameLength];
-			for(int j = 0; j < finalName.length; j++) {
+				for(int j = 0; j < finalName.length; j++) {
 					finalName[j] = syllableSize[j];
 					System.out.print(finalName[j]);
 				}
@@ -92,35 +94,37 @@ public class Final_Project_Name_Generator {
 
 			userInputSyllables--;
 		}
-		
+
 
 
 	}
-	
+
 	// Determines what kind of syllable is to be used.
-	public static char[] randomSyllables(char[] syllableNumber) {
+	public static char[] randomSyllables() {
 
+		// Play with later
+		// Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
+			int syllableNumber = (int)Math.round(Math.random() * ((4 - 1 ) + 1)); 
+			if(syllableNumber == 1) {
+				char[] syllableA = {'a'};
+				return syllableA;
+			}
+			else if(syllableNumber == 2) {
+				char[] syllableAB = {'a', 'b'};
+				return syllableAB;
+			}
+			else if(syllableNumber == 3){
+				char[] syllableBA = {'b', 'a'};
+				return syllableBA;
+			}
+			else {
+				char[] syllableBAB = {'b', 'a', 'b'};
+				return syllableBAB;
+			}
+}
 
-		if(syllableNumber.length == 1) {
-			char[] syllableA = {'a'};
-			return syllableA;
-		}
-		else if(syllableNumber.length == 2) {
-			char[] syllableAB = {'a', 'b'};
-			return syllableAB;
-		}
-		else if(syllableNumber.length == 3){
-			char[] syllableBA = {'b', 'a'};
-			return syllableBA;
-		}
-		else if(syllableNumber.length == 4){
-			char[] syllableBAB = {'b', 'a', 'b'};
-			return syllableBAB;
-		}
-	}
-
-	public static void letters() {
-		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
-		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
-	}
+public static void letters() {
+	char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+	char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
+}
 }
