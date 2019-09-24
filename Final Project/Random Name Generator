@@ -72,36 +72,52 @@ public class Final_Project_Name_Generator {
 	// Generates an elvish name.
 	public static void elves() {
 		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
-		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
+		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
 		//int charNameLength = 0;
 
-		System.out.println("how many syllables do you want?");
-		int userInputSyllables = input.nextInt();
 
-		while(userInputSyllables > 0) {
-			char[] syllableSize = randomSyllables();
+		System.out.println("How many names would you like to generate?");
+		int numberOfNames = input.nextInt();
 
-			//charNameLength += charNameLength + syllableSize.length;
-			for(int i = 0; i < syllableSize.length; i++) {
-				if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
-					int vows = (int)Math.round(Math.random() * (6 - 1));
-					syllableSize[i] = vowels[vows];
+		while(numberOfNames > 0) {
+			System.out.println("how many syllables do you want?");
+			int userInputSyllables = input.nextInt();
+
+			while(userInputSyllables > 0) {
+				char[] syllableSize = randomSyllables();
+
+				//charNameLength += charNameLength + syllableSize.length;
+				for(int i = 0; i < syllableSize.length; i++) {
+					if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
+						int vows = (int)Math.round(Math.random() * (6 - 1));
+						syllableSize[i] = vowels[vows];
+					}
+					else if(Character.compare(syllableSize[i], 'b') == 0) { // Determines if the character is a consonant.
+						int cons = (int)Math.round(Math.random() * (21 - 1));
+						syllableSize[i] = consonants[cons];
+						if(Character.compare(syllableSize[i], 'q') == 0) { //My intention for this is to 
+							syllableSize[i + 1] = 'u';
+							i++;
+							int vows = (int)Math.round(Math.random() * (6 - 1));
+							syllableSize[i] = vowels[vows];
+						}
+						else {
+							continue;
+						}
+					}
+
 				}
-				else if(Character.compare(syllableSize[i], 'b') == 0) { // Determines if the character is a consonant.
-					int cons = (int)Math.round(Math.random() * (21 - 1));
-					syllableSize[i] = consonants[cons];
+				//char[] finalName = new char[charNameLength];
+				for(int j = 0; j < syllableSize.length; j++) {
+					System.out.print(syllableSize[j]);
 				}
 
+				userInputSyllables--;
 			}
-			//char[] finalName = new char[charNameLength];
-			for(int j = 0; j < syllableSize.length; j++) {
-				System.out.print(syllableSize[j]);
-			}
-
-			userInputSyllables--;
+			numberOfNames--;
+			System.out.print("\n");
 		}
 	}
-
 
 	// Determines what kind of syllable is to be used.
 	public static char[] randomSyllables() {
