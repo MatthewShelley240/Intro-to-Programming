@@ -1,3 +1,10 @@
+/*
+ * Matthew Shelley
+ * 09/24/2019
+ * Final Project, Random Name Generator
+ */
+
+
 import java.util.Scanner;
 
 public class Final_Project_Name_Generator {
@@ -6,12 +13,12 @@ public class Final_Project_Name_Generator {
 
 	public static void main(String[] args) {
 		input = new Scanner(System.in);
-
+		
 		System.out.println("What race would you like to generate a name for?");
 		System.out.println("Valid answers are 'Orcs' or 'Elves'");
 		String orcs = "orcs";
 		String elves = "elves";
-		int syllables = 0;
+		//int syllables = 0;
 
 		//determines if the user input is valid or not.
 		boolean running = true;
@@ -36,7 +43,15 @@ public class Final_Project_Name_Generator {
 
 
 	}
-	// Generates an orkish name.
+	/**
+	 * Prints a random Orcish name.
+	 * Based on the output from randomSyllables, 
+	 * this program uses an array to determine which letters need to be vowels, 
+	 * and which need to be consonants. 
+	 * It then chooses a random letter and prints that letter out.
+	 */
+	
+	// Generates an orcish name.
 	public static void orcs() {
 		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
 		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
@@ -46,7 +61,9 @@ public class Final_Project_Name_Generator {
 		int userInputSyllables = input.nextInt();
 
 		while(userInputSyllables > 0) {
-			char[] syllableSize = randomSyllables();
+			
+			int syllableNumber = (int)Math.round(Math.random() * ((4 - 1 ) + 1)); 
+			char[] syllableSize = randomSyllables(syllableNumber);
 
 			//charNameLength += charNameLength + syllableSize.length;
 			for(int i = 0; i < syllableSize.length; i++) {
@@ -67,7 +84,14 @@ public class Final_Project_Name_Generator {
 			userInputSyllables--;
 		}
 	}
-
+	
+	/**
+	 * Prints a random Elvish name. 
+	 * Based on the output from randomSyllables, 
+	 * this program uses an array to determine which letters need to be vowels, 
+	 * and which need to be consonants. 
+	 * It then chooses a random letter and prints that letter out.
+	 */
 
 	// Generates an elvish name.
 	public static void elves() {
@@ -76,55 +100,50 @@ public class Final_Project_Name_Generator {
 		//int charNameLength = 0;
 
 
-		System.out.println("How many names would you like to generate?");
-		int numberOfNames = input.nextInt();
+		System.out.println("how many syllables do you want?");
+		int userInputSyllables = input.nextInt();
 
-		while(numberOfNames > 0) {
-			System.out.println("how many syllables do you want?");
-			int userInputSyllables = input.nextInt();
+		while(userInputSyllables > 0) {
 
-			while(userInputSyllables > 0) {
-				char[] syllableSize = randomSyllables();
 
-				//charNameLength += charNameLength + syllableSize.length;
-				for(int i = 0; i < syllableSize.length; i++) {
-					if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
-						int vows = (int)Math.round(Math.random() * (6 - 1));
-						syllableSize[i] = vowels[vows];
-					}
-					else if(Character.compare(syllableSize[i], 'b') == 0) { // Determines if the character is a consonant.
-						int cons = (int)Math.round(Math.random() * (21 - 1));
-						syllableSize[i] = consonants[cons];
-						if(Character.compare(syllableSize[i], 'q') == 0) { //My intention for this is to 
-							syllableSize[i + 1] = 'u';
-							i++;
-							int vows = (int)Math.round(Math.random() * (6 - 1));
-							syllableSize[i] = vowels[vows];
-						}
-						else {
-							continue;
-						}
-					}
+			// Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
+			int syllableNumber = (int)Math.round(Math.random() * ((4 - 1 ) + 1)); 
+			char[] syllableSize = randomSyllables(syllableNumber);
 
+			//charNameLength += charNameLength + syllableSize.length;
+			for(int i = 0; i < syllableSize.length; i++) {
+				if(Character.compare(syllableSize[i], 'a') == 0) { // Determines if the character is a vowel.
+					int vows = (int)Math.round(Math.random() * (6 - 1));
+					syllableSize[i] = vowels[vows];
 				}
-				//char[] finalName = new char[charNameLength];
-				for(int j = 0; j < syllableSize.length; j++) {
-					System.out.print(syllableSize[j]);
+				else if(Character.compare(syllableSize[i], 'b') == 0) { // Determines if the character is a consonant.
+					int cons = (int)Math.round(Math.random() * (21 - 1));
+					syllableSize[i] = consonants[cons];
 				}
 
-				userInputSyllables--;
 			}
-			numberOfNames--;
-			System.out.print("\n");
+			//char[] finalName = new char[charNameLength];
+			for(int j = 0; j < syllableSize.length; j++) {
+				System.out.print(syllableSize[j]);
+			}
+
+			userInputSyllables--;
 		}
 	}
 
 	// Determines what kind of syllable is to be used.
-	public static char[] randomSyllables() {
+	/** 
+	 * Doesn't have an input, merely an output, which is one of four possible arrays.
+	 * arrayA = {'a'}, 
+	 * arrayAB = {'a', 'b'}, 
+	 * arrayBA = {'b', 'a'}, 
+	 * arrayBAB = {'b', 'a', 'b'},
+	 * @return There are four possible returns, each one dictating an array of a specific size and type: arrayA = {'a'}, arrayAB = {'a', 'b'}, arrayBA = {'b', 'a'}, arrayBAB = {'b', 'a', 'b'},
+	 */
+	public static char[] randomSyllables(int temp) {
 
-		// Play with later
-		// Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
-		int syllableNumber = (int)Math.round(Math.random() * ((4 - 1 ) + 1)); 
+		int syllableNumber = temp;
+
 		if(syllableNumber == 1) {
 			char[] syllableA = {'a'};
 			return syllableA;
@@ -148,5 +167,26 @@ public class Final_Project_Name_Generator {
 		char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
 		char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};		
 	}
+
+
+						if(Character.compare(syllableSize[i], 'q') == 0) { //My intention for this is to 
+							syllableSize[i + 1] = 'u';
+							i++;
+							int vows = (int)Math.round(Math.random() * (6 - 1));
+							syllableSize[i] = vowels[vows];
+						}
+						else {
+							continue;
+						}
+
+		while(numberOfNames > 0) {
+
+
+		System.out.println("How many names would you like to generate?");
+		int numberOfNames = input.nextInt();
+
+		numberOfNames--;
+		System.out.print("\n");
+			}
 	 */
 }
