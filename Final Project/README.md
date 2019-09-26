@@ -1,7 +1,6 @@
 ## Synopsis
 
-This is a prototype random name generator for authors or fantasy gamers. 
-This will randomly generate a name for a variety of different races, currently elves and orcs
+This is a prototype random name generator for authors or fantasy gamers. This will randomly generate a name for a variety of different races, currently elves and orcs.
 
 ## Code Example
 
@@ -35,9 +34,13 @@ Here is a sample of my code.
 
 This is specifically the code that builds the random names for orcs.
 
+This is a sample run of the program.
+[Caption of Image]()Sample Run.jpg)
+
+
 ## Motivation
 
-project is a prototype random name generator specifically for my mom. My mom’s an author and she has to come up with a lot of names for various characters. I wanted to write a random name generator for her, that will prompt her to enter an integer that dictates how many syllables the name is. Based on that length it will choose randomly how many vowels and consonants to have. Then randomly call into two arrays, one filled with all the vowels, and one filled with all the consonants. Followed by displaying the name that was generated. I would also like to implement conditions that allow for more racial specific names saved in a variety of methods.
+This project is a prototype random name generator specifically for my mom. My mom’s an author and she has to come up with a lot of names for various characters. I wanted to write a random name generator for her, that will prompt her to enter an integer that dictates how many syllables the name is. Based on that length it will choose randomly how many vowels and consonants to have. Then randomly call into two arrays, one filled with all the vowels, and one filled with all the consonants. Followed by displaying the name that was generated. I would also like to implement conditions that allow for more racial specific names saved in a variety of methods.
 
 ## Installation
 
