@@ -37,13 +37,7 @@ This is specifically the code that builds the random names for orcs.
 
 ## Motivation
 
-project is a prototype random name generator specifically for my mom. 
-My mom’s an author and she has to come up with a lot of names for various characters. 
-I wanted to write a random name generator for her, that will prompt her to enter an integer that dictates how many syllables the name is. 
-Based on that length it will choose randomly how many vowels and consonants to have. 
-Then randomly call into two arrays, one filled with all the vowels, and one filled with all the consonants. 
-Followed by displaying the name that was generated. 
-I would also like to implement conditions that allow for more racial specific names saved in a variety of methods.
+project is a prototype random name generator specifically for my mom. My mom’s an author and she has to come up with a lot of names for various characters. I wanted to write a random name generator for her, that will prompt her to enter an integer that dictates how many syllables the name is. Based on that length it will choose randomly how many vowels and consonants to have. Then randomly call into two arrays, one filled with all the vowels, and one filled with all the consonants. Followed by displaying the name that was generated. I would also like to implement conditions that allow for more racial specific names saved in a variety of methods.
 
 ## Installation
 
@@ -51,7 +45,7 @@ Merely click the Random_Name_Generator file to run the program.
 
 ## Tests
 
-I used Junit to test the randomSyllables() method. As see in Testing_Random_Name_Generator
+I used Junit to test the randomSyllables() method. As see in Testing_Random_Name_Generator.
 
 ## Contributors
 
