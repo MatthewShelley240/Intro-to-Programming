@@ -38,7 +38,7 @@ This is a sample run of the program.
 
 Prompts the user to input the race they wish to generate, how many names, and how many syllables. When finished it asks if the user would like to do it again.
 
-(Sample Run.jpg)
+[Caption of Image](Sample Run.jpg)
 
 
 ## Motivation
