@@ -35,7 +35,10 @@ Here is a sample of my code.
 This is specifically the code that builds the random names for orcs.
 
 This is a sample run of the program.
-[Caption of Image]()Sample Run.jpg)
+
+Prompts the user to input the race they wish to generate, how many names, and how many syllables. When finished it asks if the user would like to do it again.
+
+[Caption of Image](Sample Run.jpg)
 
 
 ## Motivation
